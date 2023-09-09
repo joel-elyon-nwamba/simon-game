@@ -1,0 +1,40 @@
+.simon {
+  position: relative;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: solid 3px black;
+  margin-top: 190px;
+  background: grey;
+  background-color: linear-gradient(45deg, rgba(0,0,0,1)0%, rgba(28,36,45,1) 100%)
+}
+
+.colorButton {
+  position: absolute;
+  width: 200px;
+  height: 190px;
+  margin: 20px;
+}
+
+.colorRed {
+  top: 0;
+  left: 0;
+  background-color: red;
+  border-top-left-radius: 200px;
+}
+
+.colorBlue {
+  background-color: blue;
+  border-top-right-radius: 200px;
+}
+
+.colorGreen {
+  background-color: green;
+  border-bottom-right-radius: 200px;
+}
+
+.colorYellow {
+  background-color: yellow;
+  border-bottom-left-radius: 200px;
+}

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url("/img/brick.jpeg")
 }
@@ -11,7 +15,10 @@ body {
   gap: 10px;
 }
 
-
+header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+}
 
 .colorButton {
   border: solid 3px black;
@@ -28,6 +35,8 @@ body {
 #highest-score {
   text-align: right;
   padding-right: 100px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
 }
 
 .bottom-left-panel-red {
@@ -47,5 +56,18 @@ body {
 
 .top-right-panel-yellow {
   border-top-right-radius: 200px;
-  background-color: yellow;
+  background: linear-gradient(rgb(205, 205, 20), rgb(143, 169, 11));
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  font-weight: bold;
+  background: linear-gradient(rgb(21, 196, 182), rgb(30, 78, 182))
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
 }

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer="./js/index.js"></script>
   <title>Simon Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="./css/styles.css" rel="stylesheet"/>
 </head>
 <body>
@@ -12,8 +15,8 @@
     <header>
       <h1>Simon Game</h1>
     </header>
-    <button>Start Button</button>
-    <button>ready to play</button>
+    <button id="start-button">Start Button</button>
+    <button id="ready-to-play">ready to play</button>
   </section>
   <section class="container">
     <p id="score"><span></span>Score:</p>
@@ -25,7 +28,9 @@
       <div class="bottom-left-panel-red colorButton"></div>
       <div class="bottom-right-panel-blue colorButton"></div>
     </section>
-    <button>Play New game</button>
-    <button>Reset Game</button>
+    <section class="btn-container">
+    <button id="play-new-game">Play New game</button>
+    <button id="reset-game">Reset Game</button>
+  </section>
 </body>
 </html>

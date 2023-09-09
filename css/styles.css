@@ -1,9 +1,33 @@
+body {
+  background-image: url("/img/brick.jpeg")
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  gap: 10px;
+}
+
 
 
 .colorButton {
+  border: solid 3px black;
+  background-color: grey;
   width: 200px;
   height: 200px;
   display: inline-block;
+  position: relative;
+  left: 43%;
+  transform: translateX(-50%);
+}
+
+#score,
+#highest-score {
+  text-align: right;
+  padding-right: 100px;
 }
 
 .bottom-left-panel-red {

@@ -1,32 +1,51 @@
 // First grab all DOMS
-const startButton = document.querySelector(".start-button");
+const startButton = document.getElementById("start-button");
 const readyToPlay = document.querySelector(".ready-to-play");
 const score = document.getElementById("score");
-const highestScore = document.getElementById("highest-score");
 const playNewGame = document.getElementById("play-new-game");
 const resetGame = document.getElementById("reset-game");
+const colorButton = document.querySelector(".colorButton");
 
 // Grab all DOM color sequence change
-const greenColor = documnent.querySelector(".top-left-panel-green");
+const greenColor = document.querySelector(".top-left-panel-green");
 const yellowColor = document.querySelector(".top-right-panel-yellow");
 const redColor = document.querySelector(".bottom-left-panel-red");
 const blueColor = document.querySelector(".bottom-right-panel-blue");
 
-// When user clicks on start the game the sequence of the game should start
-// if the first random color appear, play should begin following the pattern
-// if player successfully follows pattern the score increases
-// Understand my problem: I want to be ablw to have the Simon game be able to flash the colors, and to follow a sequence, and also for the player to be able follow the sequence.
-const simonColor = ["green", "red", "yellow", "blue"];
-let gameStart = false;
+// Understand => Implementing the core Simon Game: We should be able to have the game reperesent a sequence of colors to the player, and for the player to follow the pattern and input the pattern in order to gain points and increase difficulty
+// Plan: have list created of colors that we will grab for the simon game between the colors red, green, blue, and yellow
+// when we click to start the game. The sequence takes place immediately for the user to notice.
+// player should follow the pattern of the game, if player fails to follow the pattern they lose the game, or else if they are successful in memorizing the pattern
+// play gains a point each time and the game gets more difficult
+
+const simonColors = ["green", "yellow", "red", "blue"];
 let simonPattern = [];
-let userInputPatter = [];
-let scoreBoard = 0;
+let userInputPattern = [];
+let gameStart = false;
 
+
+// creating a sequence of colors
 function simonSequence() {
-  const randomColor = Math.floor(Math.random() * simonColor.length);
+  // with MathRandom we generate a sequence of color
+  const randomColor = Math.floor(Math.random() * simonColors.length);
+  // we will use the simon partern array to take in the sequence of colors by pushing it in the array.
   simonPattern.push(randomColor);
+  console.log(simonPattern);
 }
+// Playing the simon sequence
+let interval;
+let index = 0;
+const color = ["blue", "blue", "green", "yellow", "yellow", "red"]
+function playSimonSequence() {
+  // set timeout & set interval
+  console.log(color[index])
+  index++
+  if(index === color.length) {
+    clearInterval(interval);
+    let index = 0;
+  }
+}
+interval = setInterval(() => {
+  playSimonSequence();
+}, 1000);
 
-function flshColor() {
-  
-}

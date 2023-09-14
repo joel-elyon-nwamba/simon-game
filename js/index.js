@@ -18,7 +18,7 @@ const blueColor = document.querySelector(".bottom-right-panel-blue");
 // player should follow the pattern of the game, if player fails to follow the pattern they lose the game, or else if they are successful in memorizing the pattern
 // play gains a point each time and the game gets more difficult
 
-const simonColors = ["green", "yellow", "red", "blue"];
+const simonColors = [greenColor, yellowColor, redColor, blueColor];
 let simonPattern = [];
 let userInputPattern = [];
 let gameStart = false;
@@ -33,19 +33,62 @@ function simonSequence() {
   console.log(simonPattern);
 }
 // Playing the simon sequence
+// declare a variable called interval
 let interval;
+// declare another variable that
 let index = 0;
-const color = ["blue", "blue", "green", "yellow", "yellow", "red"]
 function playSimonSequence() {
   // set timeout & set interval
-  console.log(color[index])
-  index++
-  if(index === color.length) {
+  if(index < simonPattern.length) {
+    const colorOfPattern = simonPattern[index];
+    const displayColor = simonColors[colorOfPattern];
+    // display the color
+    displayColor.backgroundColor = "blue"
+    index++
+
+  } else {
     clearInterval(interval);
-    let index = 0;
   }
 }
 interval = setInterval(() => {
   playSimonSequence();
 }, 1000);
+
+playSimonSequence();
+
+// Function to start a new game
+function startGame() {
+  // Initialize game variables(the score, paterns)
+  simonPattern = [];
+  userInputPattern = [];
+  gameStart = true;
+  // Start the Simon sequence
+  simonSequence()
+  // display the initial pattern to the user
+  playSimonSequence()
+}
+
+// function to handle user input when clicking color panels
+function handleColorClicked(color) {
+  // Add the clicked color to userInputPattern
+  // Check if userInputPattern matches simonPattern
+  // If it matches, continue the game or increase the score
+  // If it doesn't match, end the game
+}
+
+// Event Listeners for buttons
+// greenColor.addEventListener("click", )
+
+
+// function to display pattenr
+function displayPattern(pattenr) {
+  // show pattern to the user
+
+}
+
+function gameWon() {
+// Handle winning the game by increasing the and showing the message
+}
+
+
 

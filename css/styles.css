@@ -31,6 +31,10 @@ header {
   transform: translateX(-50%);
 }
 
+.active {
+  background-color:aqua;
+}
+
 #score,
 #highest-score {
   text-align: right;

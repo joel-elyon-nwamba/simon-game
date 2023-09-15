@@ -31,6 +31,7 @@ function simonSequence() {
   // we will use the simon partern array to take in the sequence of colors by pushing it in the array.
   simonPattern.push(randomColor);
   console.log(simonPattern);
+  playSimonSequence()
 }
 // Playing the simon sequence
 // declare a variable called interval
@@ -38,21 +39,27 @@ let interval;
 // declare another variable that
 let index = 0;
 function playSimonSequence() {
-  // set timeout & set interval
+  // set timeout and interval
+  // need to connect simonPattern in order for the sequence to take place
   if(index < simonPattern.length) {
-    const colorOfPattern = simonPattern[index];
-    const displayColor = simonColors[colorOfPattern];
+    const colorSequence = simonPattern[index];
+    const displayColor = simonColors[colorSequence];
     // display the color
-    displayColor.backgroundColor = "blue"
-    index++
+    displayColor.style.backgroundColor = "yellow";
 
-  } else {
-    clearInterval(interval);
+    setTimeout(() => {
+      // should be no color
+      displayColor.style.backgroundColor = " ";
+      index++;
+      // check if the index is equal to the simonPattern
+      if(index === simonPattern.length) {
+        clearInterval(interval)
+      }
+    }, 1000)
   }
 }
-interval = setInterval(() => {
-  playSimonSequence();
-}, 1000);
+
+interval = setInterval(playSimonSequence, 1000);
 
 playSimonSequence();
 
@@ -71,6 +78,7 @@ function startGame() {
 // function to handle user input when clicking color panels
 function handleColorClicked(color) {
   // Add the clicked color to userInputPattern
+  userInputPattern.push(color);
   // Check if userInputPattern matches simonPattern
   // If it matches, continue the game or increase the score
   // If it doesn't match, end the game

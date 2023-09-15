@@ -22,6 +22,7 @@ const simonColors = [greenColor, yellowColor, redColor, blueColor];
 let simonPattern = [];
 let userInputPattern = [];
 let gameStart = false;
+let scoreLevel = 0;
 
 
 // creating a sequence of colors
@@ -60,7 +61,7 @@ function playSimonSequence() {
 }
 
 interval = setInterval(playSimonSequence, 1000);
-
+console.log(interval);
 playSimonSequence();
 
 // Function to start a new game
@@ -80,6 +81,9 @@ function handleColorClicked(color) {
   // Add the clicked color to userInputPattern
   userInputPattern.push(color);
   // Check if userInputPattern matches simonPattern
+  if(userInputPattern.length === simonPattern.length) {
+    score.textContent = scoreLevel;
+  }
   // If it matches, continue the game or increase the score
   // If it doesn't match, end the game
 }

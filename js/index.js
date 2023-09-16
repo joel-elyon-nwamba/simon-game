@@ -39,26 +39,64 @@ function simonSequence() {
 let interval;
 // declare another variable that
 let index = 0;
+let flash = 0;
+let maximumFlash = 0;
 function playSimonSequence() {
-  // set timeout and interval
-  // need to connect simonPattern in order for the sequence to take place
-  if(index < simonPattern.length) {
+  if (flash < maximumFlash) {
     const colorSequence = simonPattern[index];
     const displayColor = simonColors[colorSequence];
-    // display the color
-    displayColor.style.backgroundColor = "yellow";
 
-    setTimeout(() => {
-      // should be no color
-      displayColor.style.backgroundColor = " ";
-      index++;
-      // check if the index is equal to the simonPattern
-      if(index === simonPattern.length) {
-        clearInterval(interval)
-      }
-    }, 1000)
+    // Toggle between the color and no color
+    if (displayColor.style.backgroundColor === "blue") {
+      displayColor.style.backgroundColor = "";
+    } else {
+      displayColor.style.backgroundColor = "blue";
+    }
+
+    flash++;
+  } else {
+    clearInterval(interval);
+
+    // Reset the color to no color after flashing
+    const colorSequence = simonPattern[index];
+    const displayColor = simonColors[colorSequence];
+    displayColor.style.backgroundColor = " ";
+
+    index++;
+
+    if (index < simonPattern.length) {
+      // Continue the sequence
+      setTimeout(() => {
+        playSimonSequence();
+      }, 500); // Adjust the duration (in milliseconds) between flashes
+    } else {
+      // Start a new sequence or continue the game
+      setTimeout(() => {
+        simonSequence();
+      }, 1000); // Adjust the delay before starting the next sequence
+    }
   }
 }
+// function playSimonSequence() {
+//   // set timeout and interval
+//   // need to connect simonPattern in order for the sequence to take place
+//   if(index < simonPattern.length) {
+//     const colorSequence = simonPattern[index];
+//     const displayColor = simonColors[colorSequence];
+//     // display the color
+//     displayColor.style.backgroundColor = "yellow";
+
+//     setTimeout(() => {
+//       // should be no color
+//       displayColor.style.backgroundColor = " ";
+//       index++;
+//       // check if the index is equal to the simonPattern
+//       if(index === simonPattern.length) {
+//         clearInterval(interval)
+//       }
+//     }, 1000)
+//   }
+// }
 
 interval = setInterval(playSimonSequence, 1000);
 console.log(interval);
@@ -83,13 +121,15 @@ function handleColorClicked(color) {
   // Check if userInputPattern matches simonPattern
   if(userInputPattern.length === simonPattern.length) {
     score.textContent = scoreLevel;
+  } else {
+    gameOver()
   }
   // If it matches, continue the game or increase the score
   // If it doesn't match, end the game
 }
 
 // Event Listeners for buttons
-// greenColor.addEventListener("click", )
+startButton.addEventListener("click", startGame);
 
 
 // function to display pattenr
@@ -100,6 +140,10 @@ function displayPattern(pattenr) {
 
 function gameWon() {
 // Handle winning the game by increasing the and showing the message
+}
+
+function gameOver() {
+  
 }
 
 

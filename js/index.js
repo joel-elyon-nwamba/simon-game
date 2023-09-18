@@ -31,9 +31,9 @@ function simonSequence() {
   const randomColor = Math.floor(Math.random() * simonColors.length);
   // we will use the simon partern array to take in the sequence of colors by pushing it in the array.
   simonPattern.push(randomColor);
-  console.log(simonPattern);
   playSimonSequence()
 }
+
 
 // function to play the sequence of the game
 function playSimonSequence() {
@@ -51,13 +51,15 @@ function playSimonSequence() {
     }
   }, 1000)
 }
+playSimonSequence();
 // Will declare a flash card 
-function flashColor(colorButton) {
+function flashColor(indexColor) {
   // toggle of the css class of active which allows the colors to change
-  colorButton.classList.add("active");
-  setTimeout(() => {
-    colorButton.classList.remove("active");
-  }, 2000)
+ const elementOfColor = simonColors[indexColor];
+ elementOfColor.classList.add("active");
+ setTimeout(() => {
+  elementOfColor.classList.remove("active")
+ }, 2000);
 }
 
 
@@ -68,14 +70,11 @@ function userInput() {
 // Function to start a new game
 function startGame() {
   // Initialize game variables(the score, paterns)
-  console.log("Click me")
   simonPattern = [];
   userInputPattern = [];
   gameStart = true;
   // Start the Simon sequence
-  simonSequence()
-  // display the initial pattern to the user
-  playSimonSequence()
+  simonSequence();
 }
 
 // function to handle user input when clicking color panels
@@ -93,7 +92,11 @@ function handleColorClicked(color) {
 }
 
 // Event Listeners for buttons
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", () => {
+  if(!gameStart) {
+    startGame();
+  }
+});
 greenColor.addEventListener("click", () => {
   console.log("I am green");
   if (gameStart) {

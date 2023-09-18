@@ -34,77 +34,41 @@ function simonSequence() {
   console.log(simonPattern);
   playSimonSequence()
 }
-// Playing the simon sequence
-// declare a variable called interval
-let interval;
-// declare another variable that
-let index = 0;
-let flash = 0;
-let maximumFlash = 0;
+
+// function to play the sequence of the game
 function playSimonSequence() {
-  if (flash < maximumFlash) {
-    const colorSequence = simonPattern[index];
-    const displayColor = simonColors[colorSequence];
-
-    // Toggle between the color and no color
-    if (displayColor.style.backgroundColor === "blue") {
-      displayColor.style.backgroundColor = "";
-    } else {
-      displayColor.style.backgroundColor = "blue";
+  // declare variable that is equal to 0
+  let i = 0;
+  // set up an interval
+  const intervalSet = setInterval(() => {
+    flashColor(simonPattern[i]);
+    i++
+    // we should check if the i is equal or greater than simonpattern we need to clear the interval
+    if(i >= simonPattern.length) {
+      clearInterval(intervalSet);
+      // Allow the users input
+      userInput();
     }
-
-    flash++;
-  } else {
-    clearInterval(interval);
-
-    // Reset the color to no color after flashing
-    const colorSequence = simonPattern[index];
-    const displayColor = simonColors[colorSequence];
-    displayColor.style.backgroundColor = " ";
-
-    index++;
-
-    if (index < simonPattern.length) {
-      // Continue the sequence
-      setTimeout(() => {
-        playSimonSequence();
-      }, 500); // Adjust the duration (in milliseconds) between flashes
-    } else {
-      // Start a new sequence or continue the game
-      setTimeout(() => {
-        simonSequence();
-      }, 1000); // Adjust the delay before starting the next sequence
-    }
-  }
+  }, 1000)
 }
-// function playSimonSequence() {
-//   // set timeout and interval
-//   // need to connect simonPattern in order for the sequence to take place
-//   if(index < simonPattern.length) {
-//     const colorSequence = simonPattern[index];
-//     const displayColor = simonColors[colorSequence];
-//     // display the color
-//     displayColor.style.backgroundColor = "yellow";
+// Will declare a flash card 
+function flashColor(colorButton) {
+  // toggle of the css class of active which allows the colors to change
+  colorButton.classList.add("active");
+  setTimeout(() => {
+    colorButton.classList.remove("active");
+  }, 2000)
+}
 
-//     setTimeout(() => {
-//       // should be no color
-//       displayColor.style.backgroundColor = " ";
-//       index++;
-//       // check if the index is equal to the simonPattern
-//       if(index === simonPattern.length) {
-//         clearInterval(interval)
-//       }
-//     }, 1000)
-//   }
-// }
 
-interval = setInterval(playSimonSequence, 1000);
-console.log(interval);
-playSimonSequence();
+function userInput() {
+  userInputPattern = []
+}
 
 // Function to start a new game
 function startGame() {
   // Initialize game variables(the score, paterns)
+  console.log("Click me")
   simonPattern = [];
   userInputPattern = [];
   gameStart = true;
@@ -130,7 +94,33 @@ function handleColorClicked(color) {
 
 // Event Listeners for buttons
 startButton.addEventListener("click", startGame);
+greenColor.addEventListener("click", () => {
+  console.log("I am green");
+  if (gameStart) {
+    handleColorClicked("green"); // Pass the color as an argument
+  }
+});
 
+yellowColor.addEventListener("click", () => {
+  console.log("I am yellow")
+  if (gameStart) {
+    handleColorClicked("yellow"); // Pass the color as an argument
+  }
+});
+
+redColor.addEventListener("click", () => {
+  console.log("I am red")
+  if (gameStart) {
+    handleColorClicked("red"); // Pass the color as an argument
+  }
+});
+
+blueColor.addEventListener("click", () => {
+  console.log("I am blue")
+  if (gameStart) {
+    handleColorClicked("blue"); // Pass the color as an argument
+  }
+});
 
 // function to display pattenr
 function displayPattern(pattenr) {

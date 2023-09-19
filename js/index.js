@@ -12,10 +12,6 @@ const yellowColor = document.querySelector(".top-right-panel-yellow");
 const redColor = document.querySelector(".bottom-left-panel-red");
 const blueColor = document.querySelector(".bottom-right-panel-blue");
 
-// Understand => Implementing the core Simon Game: We should be able to have the game reperesent a sequence of colors to the player, and for the player to follow the pattern and input the pattern in order to gain points and increase difficulty
-// Plan: have list created of colors that we will grab for the simon game between the colors red, green, blue, and yellow
-// when we click to start the game. The sequence takes place immediately for the user to notice.
-// player should follow the pattern of the game, if player fails to follow the pattern they lose the game, or else if they are successful in memorizing the pattern
 // play gains a point each time and the game gets more difficult
 
 const simonColors = [greenColor, yellowColor, redColor, blueColor];
@@ -30,36 +26,66 @@ function simonSequence() {
   // with MathRandom we generate a sequence of color
   const randomColor = Math.floor(Math.random() * simonColors.length);
   // we will use the simon partern array to take in the sequence of colors by pushing it in the array.
-  simonPattern.push(randomColor);
-  playSimonSequence()
+  return simonPattern.push(randomColor);
 }
 
 
 // function to play the sequence of the game
-function playSimonSequence() {
-  // declare variable that is equal to 0
-  let i = 0;
-  // set up an interval
-  const intervalSet = setInterval(() => {
-    flashColor(simonPattern[i]);
-    i++
-    // we should check if the i is equal or greater than simonpattern we need to clear the interval
-    if(i >= simonPattern.length) {
-      clearInterval(intervalSet);
-      // Allow the users input
-      userInput();
-    }
-  }, 1000)
+// function playSimonSequence() {
+//   let i = 0;
+//   let intervalSet = setInterval(() => {
+//     const colorSequence = simonPattern[i];
+//     console.log(colorSequence);
+//     console.log(simonColors[colorSequence].classList.add("active"));
+//     setTimeout(() => {
+//       console.log(simonColors[colorSequence].classList.remove("active"))
+//     }, 100)
+//     i++;
+//     if(i >= simonPattern.length) {
+//       clearInterval(intervalSet);
+//       userInput();
+//     }
+//   }, 100);
+//   console.log(intervalSet)
+// }
+
+function flash(panel) {
+  return new Promise((resolve, reject) => {
+    panel.className +=  " active";
+    setTimeout(() => {
+      panel.className = panel.className.replace(" active", " ");
+      resolve();
+    }, 1000)
+  })
 }
-playSimonSequence();
-// Will declare a flash card 
-function flashColor(indexColor) {
-  // toggle of the css class of active which allows the colors to change
- const elementOfColor = simonColors[indexColor];
- elementOfColor.classList.add("active");
- setTimeout(() => {
-  elementOfColor.classList.remove("active")
- }, 2000);
+
+async function playSimonSequence() {
+  for(const panel of simonColors) {
+    await flash(panel);
+  }
+}
+
+async function playSimonSequence() {
+  for (const colorPanel of simonPattern) {
+    await flash(colorPanel); // Flash the color
+    // Wait for a short interval before moving to the next color
+    await new Promise(resolve => setTimeout(resolve, 500)); // Adjust the delay as needed
+  }
+  // You may want to add some delay at the end of the sequence before allowing user input
+  await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
+  // Now, you can enable user input or perform other actions as needed
+  userInput();
+}
+
+
+
+// function to start game
+function startGame() {
+  gameStart = true;
+  simonPattern = [];
+  userInputPattern = [];
+  simonSequence();
+  score = 0;
 }
 
 
@@ -75,6 +101,7 @@ function startGame() {
   gameStart = true;
   // Start the Simon sequence
   simonSequence();
+  scoreLevel = 0;
 }
 
 // function to handle user input when clicking color panels
@@ -126,18 +153,7 @@ blueColor.addEventListener("click", () => {
 });
 
 // function to display pattenr
-function displayPattern(pattenr) {
-  // show pattern to the user
 
-}
-
-function gameWon() {
-// Handle winning the game by increasing the and showing the message
-}
-
-function gameOver() {
-  
-}
 
 
 

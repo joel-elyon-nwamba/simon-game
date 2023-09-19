@@ -31,6 +31,11 @@ header {
   transform: translateX(-50%);
 }
 
+.colorButton::after {
+  border: 2px solid cyan;
+  box-shadow: 10px 10px 10px;
+}
+
 .active {
   background-color:aqua;
 }

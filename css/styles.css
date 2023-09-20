@@ -48,24 +48,24 @@ header {
   font-size: 20px;
 }
 
-.bottom-left-panel-red {
+.red {
   border-bottom-left-radius: 200px;
   background-color: red;
 }
 
-.bottom-right-panel-blue {
+.blue {
   border-bottom-right-radius: 200px;
   background-color: blue;
 }
 
-.top-left-panel-green {
+.green {
   border-top-left-radius: 200px;
   background-color: green;
 }
 
-.top-right-panel-yellow {
+.yellow {
   border-top-right-radius: 200px;
-  background: linear-gradient(rgb(205, 205, 20), rgb(143, 169, 11));
+  background: yellow;
 }
 
 button {

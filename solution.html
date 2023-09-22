@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <script defer src="./js/index.js"></script> -->
+  <script defer src="./js/index.js"></script>
   <title>Simon Game</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link href="./css/styles.css" rel="stylesheet"/>
+  <link href="./css/index.css" rel="stylesheet"/>
 </head>
 <body>
   <section class="heading">
@@ -16,22 +16,17 @@
       <h1>Simon Game</h1>
     </header>
     <button id="start-button">Start Game</button>
-    <button id="ready-to-play">ready to play</button>
-    <p id="update"></p>
   </section>
   <section class="container">
-  <div>
     <div id="green" class="btn green colorButton"></div>
     <div id="yellow" class="btn yellow colorButton"></div>
-  </div>
-      <div id="red" class="btn red colorButton"></div>
-      <div id="blue" class="btn blue colorButton"></div>
-      <div id="score">Score: </div>
-    </section>
-    <section class="btn-container">
-    <button id="play-new-game">Play New game</button>
+    <div id="red" class="btn red colorButton"></div>
+    <div id="blue" class="btn blue colorButton"></div>
+    <div id="score">Score: 0</div>
+  </section>
+  <section class="btn-container">
     <button id="reset-game">Reset Game</button>
   </section>
-  <script src="./js/index.js"></script>
+  <script src="./js/index-solution.js"></script>
 </body>
 </html>

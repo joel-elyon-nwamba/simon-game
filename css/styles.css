@@ -36,9 +36,6 @@ header {
   box-shadow: 10px 10px 10px;
 }
 
-.active {
-  background-color:aqua;
-}
 
 #score,
 #highest-score {
@@ -84,4 +81,13 @@ button {
 .btn-container {
   display: flex;
   justify-content: space-around;
+}
+
+.btn {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 1;
 }

@@ -1,0 +1,46 @@
+/* Base styling for the body and text alignment */
+body {
+  font-family: 'Roboto', sans-serif; /* Setting the font family for the entire page */
+  text-align: center; /* Centering the content horizontally */
+}
+
+/* Styling for the color buttons */
+.btn {
+  width: 100px; /* Setting a fixed width */
+  height: 100px; /* Setting a fixed height */
+  margin: 10px; /* Adding some space around each button */
+  border-radius: 50%; /* Making the buttons circular */
+  display: inline-block; /* Displaying the buttons inline */
+}
+
+/* Individual color styling for each button */
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+/* Styling for the flash effect when a button is activated */
+.flash {
+  opacity: 0.5; /* Making the button semi-transparent */
+  transition: opacity 0.5s; /* Smooth transition effect for the opacity */
+}
+
+/* Styling for the control buttons (start, reset) */
+button {
+  padding: 10px 20px; /* Adding some padding for better appearance */
+  margin: 10px; /* Adding some space around each button */
+  font-size: 16px; /* Setting the font size for the button text */
+}
+
+

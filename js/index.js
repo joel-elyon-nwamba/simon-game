@@ -2,6 +2,9 @@ const startButton = document.getElementById("start-button");
 const score = document.getElementById("score");
 const colorBtn = document.querySelectorAll(".btn")
 const gameReset = document.getElementById("reset-game");
+const introGame = document.getElementById("ready-to-play");
+const modal = document.querySelector(".modal");
+const closeModal = document.getElementById("play-new-game");
 const simonColors = ["red", "green", "yellow", "blue"];
 const update = document.getElementById("update");
 let isGameStart = false;
@@ -55,7 +58,7 @@ function resetGame() {
   simonPattern = [];
   userInputPattern = [];
   scoreLevel = 0;
-  score.textContent = scoreLevel;
+  score.textContent = `Score: ${scoreLevel}`
 }
 
 function userInput(color) {
@@ -68,7 +71,7 @@ function userInput(color) {
 //  if the plasyer input is equal to the computers inpute the score should increase, and display the score
  if(JSON.stringify(userInputPattern) === JSON.stringify(simonPattern)) {
   scoreLevel++
-  score.textContent = scoreLevel
+  score.textContent = `Score: ${scoreLevel}`
   startGame();
  } else {
   update.textContent = "Please try again !"
@@ -87,7 +90,22 @@ colorBtn.forEach(btn => {
 gameReset.addEventListener("click", () => {
   isGameStart = false;
   startGame()
+  scoreLevel = 0;
+  
 })
+
+
+introGame.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+
+closeModal.addEventListener("click", () => {
+  modal.style.display = "none";
+})
+
+
+
+
 
 
 

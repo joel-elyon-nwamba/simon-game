@@ -69,6 +69,10 @@ header {
   background: yellow;
 }
 
+#score {
+  font-size: 50px;
+}
+
 button {
   padding: 10px;
   border-radius: 15px;
@@ -90,4 +94,15 @@ button {
 
 .btn:hover {
   opacity: 1;
+}
+
+.modal {
+  display: none;
+  background: #ffffff;
+  padding: 20px;
+}
+
+#update {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 40px;
 }

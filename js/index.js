@@ -4,7 +4,7 @@ const colorBtn = document.querySelectorAll(".btn")
 const gameReset = document.getElementById("reset-game");
 const introGame = document.getElementById("ready-to-play");
 const modal = document.querySelector(".modal");
-const closeModal = document.getElementById("play-new-game");
+const closeModal = document.getElementById("close-modal");
 const simonColors = ["red", "green", "yellow", "blue"];
 const update = document.getElementById("update");
 let isGameStart = false;
@@ -76,6 +76,7 @@ function userInput(color) {
  } else {
   update.textContent = "Please try again !"
   resetGame()
+  update.textContent = ""
  }
 }
 

@@ -15,28 +15,38 @@
     <header>
       <h1>Simon Game</h1>
     </header>
+    <div class="content">
     <button id="start-button">Start Game</button>
-    <button id="ready-to-play">ready to play</button>
+    <button id="ready-to-play">Game Intro</button>
+    <button id="close-modal">close modal</button>
+    <div>
+  </div>
+  </div>
     <div class="modal">
-      <h1>Do What Simon Says...</h1>
-      <p>Follow the pattern of lights for as long as you can...if you can!🤣😎
+      <h1 class="title">Do What Simon Says...</h1>
+      <p class="decriprion">Follow the pattern of lights for as long as you can...if you can!🤣😎
       </p>
     </div>
     <p id="update"></p>
   </section>
+  <div class="game-center">
   <section class="container">
     <div id="score">Score: 0</div>
+    <div class="simon-game">
+      <div class="simon">
   <div>
     <div id="green" class="btn green colorButton"></div>
     <div id="yellow" class="btn yellow colorButton"></div>
   </div>
       <div id="red" class="btn red colorButton"></div>
       <div id="blue" class="btn blue colorButton"></div>
+    </div>
+    </div>
     </section>
     <section class="btn-container">
-    <button id="play-new-game">Play New game</button>
     <button id="reset-game">Reset Game</button>
   </section>
+</div>
   <script src="./js/index.js"></script>
 </body>
 </html>

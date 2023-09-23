@@ -3,39 +3,46 @@
 }
 
 body {
-  background-image: url("/img/brick.jpeg")
-}
-
-.heading {
+  background-image: url("/img/ash-edmonds-0aWZdK8nK2I-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
-  gap: 10px;
+  /* margin: 0; */
+  background-color:#f0f0f0;
+  margin: 0;
+}
+
+.heading {
+  text-align: center;
 }
 
 header {
   font-family: 'Roboto', sans-serif;
   font-size: 35px;
 }
+.content {
+  display: flex;
+  justify-content: space-around;
+}
 
 .colorButton {
-  border: solid 3px black;
-  background-color: grey;
+  border: solid 8px black;
   width: 200px;
   height: 200px;
   display: inline-block;
   position: relative;
-  left: 43%;
-  transform: translateX(-50%);
 }
 
-.colorButton::after {
-  border: 2px solid cyan;
-  box-shadow: 10px 10px 10px;
-}
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  perspective: 1200px;
+}
 
 #score,
 #highest-score {
@@ -48,29 +55,44 @@ header {
 .red {
   border-bottom-left-radius: 200px;
   background-color: red;
+  transform: rotateX(10deg) translateZ(50px);
 }
 
 .blue {
   border-bottom-right-radius: 200px;
   background-color: blue;
+  transform: rotateY(-10deg) translateZ(50px);
 }
-
-/* .btn {
-  background-color: aquamarine;
-} */
 
 .green {
   border-top-left-radius: 200px;
   background-color: green;
+  transform: rotateY(20deg) translateZ(40px);
 }
 
 .yellow {
   border-top-right-radius: 200px;
   background: yellow;
+  transform: rotateX(-10deg) translateZ(50px);
 }
 
 #score {
   font-size: 50px;
+  margin-bottom: 30px;
+}
+.btn {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  transform-style: preserve-3d;
+  border: 3px solid black;
+}
+
+.btn:active {
+  transform: translateZ(-30px);
+}
+
+.btn:hover {
+  opacity: 1;
 }
 
 button {
@@ -87,22 +109,38 @@ button {
   justify-content: space-around;
 }
 
-.btn {
-  opacity: 0.5;
-  transition: opacity 0.3s;
-}
+.simon-game {
+  display: flex;
+ flex-direction:column;
+ align-items: center;
 
-.btn:hover {
-  opacity: 1;
 }
 
 .modal {
   display: none;
-  background: #ffffff;
+  background-image: url("/img/milad-fakurian-c10tq-bB52Y-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 #update {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 40px;
 }
+
+.close-modal {
+ margin: 0 auto;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+

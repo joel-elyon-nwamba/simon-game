@@ -23,6 +23,7 @@ function startGame() {
   userInputPattern = [];
   simonPattern.push(randomColor());
   simonSequence();
+  update.textContent = " "
 }
 
 function randomColor() {
@@ -76,7 +77,6 @@ function userInput(color) {
  } else {
   update.textContent = "Please try again !"
   resetGame()
-  update.textContent = ""
  }
 }
 
